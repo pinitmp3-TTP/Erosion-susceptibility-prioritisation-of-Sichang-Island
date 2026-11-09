@@ -651,7 +651,18 @@
   "split_remaining": {
    "I1": 82,
    "I2": 83
-  }
+  },
+  "slope_disturbed_points": {
+   "n_dist": 49,
+   "n_undist": 144,
+   "med_dist": 6.8,
+   "med_undist": 12.3,
+   "p": 0.0003
+  },
+  "unit_disturbed_vs_slope": [
+   -0.52,
+   0.0
+  ]
  },
  "dem_sensitivity": {
   "fab_minus_glo_land": {
@@ -700,6 +711,67 @@
    "mean_slope_rest": 7.9,
    "rho_supply_IC": 0.35,
    "island_mean_slope": 10.4
+  }
+ },
+ "disturbance_aware": {
+  "C_mean_island": 0.0231,
+  "Cd_mean_island": 0.0661,
+  "rho_supply_with_main": 0.91,
+  "rho_CS_with_main": 0.93,
+  "top8_shared": 5,
+  "top8": [
+   "B1",
+   "B18",
+   "B4",
+   "F1",
+   "F2",
+   "F6",
+   "F7",
+   "F9"
+  ],
+  "new_in_top": [
+   "B18",
+   "F6",
+   "F9"
+  ],
+  "rho_supply_slope": 0.61,
+  "turbidity": {
+   "rho_main": -0.27,
+   "rho_dist": -0.15,
+   "p_dist": 0.337,
+   "top_med": 0.13,
+   "rest_med": 0.19
+  },
+  "disturbed_share": {
+   "rho_main": -0.12,
+   "rho_dist": -0.06,
+   "p_dist": 0.695
+  },
+  "inventory_auc": {
+   "I1": {
+    "main": [
+     0.72,
+     0.6,
+     0.82
+    ],
+    "disturbance_aware": [
+     0.69,
+     0.57,
+     0.79
+    ]
+   },
+   "I2": {
+    "main": [
+     0.55,
+     0.4,
+     0.69
+    ],
+    "disturbance_aware": [
+     0.54,
+     0.39,
+     0.68
+    ]
+   }
   }
  }
 }
