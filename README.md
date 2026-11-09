@@ -56,6 +56,7 @@ python s6_inventory.py                    # agreement between the two inventorie
 python s7_extra.py                        # unit-level tests, IC vs geometry, partial correlation, potential supply, first-round kappa
 python s10_dem_sensitivity.py              # DEM sensitivity: FABDEM vs GLO-30 control, units fixed (needs inputs/Sichang_FABDEM_grid.tif, see notes)
 python s11_disturbance_rusle.py             # disturbance-aware supply (C mixed with bare-soil frequency) and its evaluation
+python s12_aggregation.py                  # unit supply as mean, 90th percentile and exceedance area, for main and disturbance-aware C
 python make_figs_v4.py                    # Figs 2-6 of the article
 python s9_export.py                       # GeoTIFF and GeoPackage exports
 ```
