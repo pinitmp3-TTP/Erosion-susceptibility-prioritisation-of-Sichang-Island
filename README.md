@@ -29,7 +29,6 @@ interpretation/   blind visual interpretation (random points and erosion-feature
 | `Sichang_C_WorldCover_30m.tif` | 30 m grid used to aggregate WorldCover class fractions |
 | `Sichang_C_NDVI_2021_30m.tif` | NDVI-based C factor (2021), used for a sensitivity variant |
 | `S2_bare_frequency_2019_2024_30m.tif` | Sentinel-2 bare-soil frequency, 2019–2024 (export of `scripts/gee/Sichang_bare_frequency_GEE.js`): share of clear observations with NDVI below a threshold and BSI > 0. Bands `freq15`, `freq20`, `freq25` (NDVI thresholds 0.15, 0.20, 0.25) and `n_valid` (clear observations). Band 2 (`freq20`) is used in the analysis (`BARE_BAND` in `common.py`) |
-| `Sichang_FABDEM_grid.tif` | FABDEM (band 1) and GLO-30 (band 2) on the analysis grid (export of `scripts/gee/Sichang_FABDEM_GEE.js`), for the DEM sensitivity test. FABDEM: Hawker et al. (2022), CC BY-NC-SA 4.0 |
 | `soil_samples.csv` | Nine soil samples: coordinates, texture, bulk density, permeability and K for 0.5, 1.0 and 2.0% organic matter (Horpeancharoen et al., 2022) |
 | `Sichang_turbidity_outlets.csv` | Sentinel-2 nearshore turbidity at unit outlets and offshore controls, 2019–2025 (export of `scripts/gee/Sichang_turbidity_GEE.js`) |
 
@@ -55,13 +54,15 @@ python v4_results.py                      # scores, classes, null model, bare so
 python analysis/roc_features.py           # AUC of feature inventories against maps
 python s6_inventory.py                    # agreement between the two inventories (adds to v4_results.json)
 python s7_extra.py                        # unit-level tests, IC vs geometry, partial correlation, potential supply, first-round kappa
-python s10_dem_sensitivity.py              # DEM sensitivity: FABDEM vs GLO-30 control, units fixed (outputs/dem_sens/)
+python s10_dem_sensitivity.py              # DEM sensitivity: FABDEM vs GLO-30 control, units fixed (needs inputs/Sichang_FABDEM_grid.tif, see notes)
+python s11_disturbance_rusle.py             # disturbance-aware supply (C mixed with bare-soil frequency) and its evaluation
 python make_figs_v4.py                    # Figs 2-6 of the article
 python s9_export.py                       # GeoTIFF and GeoPackage exports
 ```
 
 Notes:
 - The Monte Carlo results reported in the article are in `outputs/units_5ha_mc.csv`. `s5_montecarlo.py` reproduces them to within 0.01 in P(top) (random draws differ); `v4_results.py` reads the original file.
+- FABDEM (Hawker et al., 2022) is licensed CC BY-NC-SA 4.0 and is therefore not redistributed here. To run `s10_dem_sensitivity.py`, export `Sichang_FABDEM_grid.tif` with `scripts/gee/Sichang_FABDEM_GEE.js` and place it in `inputs/`. Its results are reported in `outputs/v4_results.json` (`dem_sensitivity`).
 - `s8_points.py` regenerates the 405 random points exactly; the regenerated key is identical to `interpretation/random_points_key.csv`.
 
 ### scripts/gee/
@@ -136,4 +137,4 @@ Rasters and `.npz` arrays: WGS 84 / UTM zone 47N (EPSG:32647), 30.66 m cells, 26
 
 ## Licences and sources
 
-Data: CC BY 4.0. Code: MIT. Third-party inputs remain under their own terms: Copernicus GLO-30 DEM (© DLR e.V. 2010–2014 and © Airbus Defence and Space GmbH 2014–2018, provided under COPERNICUS by the European Union and ESA); ESA WorldCover 2021 v200 (CC BY 4.0); modified Copernicus Sentinel data 2019–2025; GPM IMERG (NASA); FABDEM (CC BY-NC-SA 4.0; non-commercial use). National C values: Land Development Department (2020). Soil data: Horpeancharoen et al. (2022).
+Data: CC BY 4.0. Code: MIT. Third-party inputs remain under their own terms: Copernicus GLO-30 DEM (© DLR e.V. 2010–2014 and © Airbus Defence and Space GmbH 2014–2018, provided under COPERNICUS by the European Union and ESA); ESA WorldCover 2021 v200 (CC BY 4.0); modified Copernicus Sentinel data 2019–2025; GPM IMERG (NASA). FABDEM (CC BY-NC-SA 4.0) is used in the DEM sensitivity test but not redistributed. National C values: Land Development Department (2020). Soil data: Horpeancharoen et al. (2022).
