@@ -1,0 +1,565 @@
+{
+ "A_island_MB": {
+  "mean": 28.8,
+  "median": 10.0,
+  "tol_pct": 46.4,
+  "share_from_gt35": 55.5
+ },
+ "A_island_DG": {
+  "mean": 57.9,
+  "median": 12.9,
+  "tol_pct": 50.5,
+  "share_from_gt35": 53.1
+ },
+ "A_island_DGcap": {
+  "mean": 48.4,
+  "median": 12.0,
+  "tol_pct": 49.5,
+  "share_from_gt35": 59.3
+ },
+ "steep_area_pct": 22.5,
+ "units": {
+  "n": 41,
+  "basins": 29,
+  "faces": 12,
+  "basin_ha": 416.3,
+  "face_ha": 234.6,
+  "basin_ha_range": [
+   5.5,
+   50.2
+  ],
+  "face_ha_range": [
+   1.4,
+   41.1
+  ]
+ },
+ "supply_unit_range": [
+  4.1,
+  143.3
+ ],
+ "supply_vs_IC": {
+  "IC_C_sealed1": {
+   "rho": 0.33,
+   "lo": 0.01,
+   "hi": 0.59,
+   "p": 0.033,
+   "n": 41
+  },
+  "IC_C_sealed0.15": {
+   "rho": 0.47,
+   "lo": 0.17,
+   "hi": 0.69,
+   "p": 0.001,
+   "n": 41
+  },
+  "IC_rough": {
+   "rho": 0.52,
+   "lo": 0.24,
+   "hi": 0.72,
+   "p": 0.0,
+   "n": 41
+  },
+  "IC_topo": {
+   "rho": 0.51,
+   "lo": 0.22,
+   "hi": 0.71,
+   "p": 0.0,
+   "n": 41
+  }
+ },
+ "supply_variants_vs_IC": {
+  "A_MB": {
+   "rho": 0.11,
+   "lo": -0.22,
+   "hi": 0.42,
+   "p": 0.491,
+   "n": 41
+  },
+  "Ae_MB": {
+   "rho": 0.32,
+   "lo": -0.01,
+   "hi": 0.58,
+   "p": 0.042,
+   "n": 41
+  },
+  "Ae_DG": {
+   "rho": 0.22,
+   "lo": -0.12,
+   "hi": 0.51,
+   "p": 0.169,
+   "n": 41
+  },
+  "Ae_DGcap_ndvi": {
+   "rho": 0.36,
+   "lo": 0.05,
+   "hi": 0.62,
+   "p": 0.012,
+   "n": 41
+  }
+ },
+ "morph": {
+  "M_vs_IC": {
+   "rho": -0.05,
+   "lo": -0.43,
+   "hi": 0.35,
+   "p": 0.814,
+   "n": 29
+  },
+  "M_vs_supply": {
+   "rho": 0.5,
+   "lo": 0.14,
+   "hi": 0.74,
+   "p": 0.006,
+   "n": 29
+  },
+  "r_H_Rh": 0.81,
+  "r_Ff_Rc": 0.74,
+  "n": 29
+ },
+ "top": {
+  "units": [
+   "B4",
+   "F7",
+   "F2",
+   "B1",
+   "B2",
+   "B3",
+   "F3",
+   "F1"
+  ],
+  "ha": 153.0,
+  "pct": 23.5,
+  "drivers": {
+   "supply+transfer": 5,
+   "supply": 3
+  },
+  "P_top_min": 0.8,
+  "next_P_top": 0.2,
+  "high": [
+   "F6",
+   "F5",
+   "B18",
+   "B8",
+   "B12",
+   "B11",
+   "B14",
+   "B9"
+  ]
+ },
+ "top_eq_slope_top8": 8,
+ "CS_vs_slope": 0.58,
+ "supply_vs_slope": 0.75,
+ "IC_vs_slope": 0.27,
+ "single_block": {
+  "k": 8,
+  "supply_only": 8,
+  "transfer_only": 1,
+  "null_mean": [
+   5.2,
+   5.2
+  ],
+  "null_95": [
+   [
+    3.0,
+    7.0
+   ],
+   [
+    3.0,
+    7.0
+   ]
+  ]
+ },
+ "faces_in_top": 4,
+ "bare": {
+  "CS": {
+   "rho": -0.34,
+   "lo": -0.6,
+   "hi": -0.02,
+   "p": 0.04,
+   "n": 41
+  },
+  "Ae_DGcap": {
+   "rho": -0.48,
+   "lo": -0.7,
+   "hi": -0.18,
+   "p": 0.002,
+   "n": 41
+  },
+  "IC_C_sealed1": {
+   "rho": -0.14,
+   "lo": -0.44,
+   "hi": 0.2,
+   "p": 0.4,
+   "n": 41
+  }
+ },
+ "bare_all_CS": {
+  "rho": -0.14,
+  "lo": -0.44,
+  "hi": 0.2,
+  "p": 0.403,
+  "n": 41
+ },
+ "thresholds": {
+  "2": {
+   "n": 80,
+   "IC_C_sealed1": 0.27,
+   "IC_topo": 0.59
+  },
+  "10": {
+   "n": 23,
+   "IC_C_sealed1": 0.33,
+   "IC_topo": 0.25
+  }
+ },
+ "turbidity": {
+  "images": 193,
+  "paired_dates": 144,
+  "P3>=10": {
+   "units": 41,
+   "wet_dates": 19,
+   "dry_dates": 72,
+   "rho_CS": -0.27,
+   "p": 0.092,
+   "top_med": 0.01,
+   "rest_med": 0.25,
+   "mw_p_top_gt": 0.99,
+   "sig_units": [
+    "B11",
+    "B15",
+    "B17",
+    "B18",
+    "B24",
+    "B7",
+    "F10",
+    "F6"
+   ],
+   "sig_units_cls": [
+    4,
+    2,
+    2,
+    4,
+    1,
+    1,
+    2,
+    4
+   ]
+  },
+  "P3>=5": {
+   "units": 41,
+   "wet_dates": 25,
+   "dry_dates": 72,
+   "rho_CS": -0.22,
+   "p": 0.158,
+   "top_med": 0.05,
+   "rest_med": 0.29,
+   "mw_p_top_gt": 0.99
+  },
+  "P3>=20": {
+   "units": 41,
+   "wet_dates": 9,
+   "dry_dates": 72,
+   "rho_CS": -0.17,
+   "p": 0.275,
+   "top_med": 0.06,
+   "rest_med": 0.18,
+   "mw_p_top_gt": 0.98
+  },
+  "P1>=5": {
+   "units": 23,
+   "wet_dates": 6,
+   "dry_dates": 72,
+   "rho_CS": -0.25,
+   "p": 0.244,
+   "top_med": -0.15,
+   "rest_med": 0.53,
+   "mw_p_top_gt": 0.98
+  }
+ },
+ "kappa": {
+  "cover8": 0.62,
+  "cover_grouped": 0.83,
+  "closed": 0.81,
+  "sealed": 0.91,
+  "disturbed": 0.42,
+  "bare_w": 0.48,
+  "n": 40
+ },
+ "randompts": {
+  "n_obs": 229,
+  "n_points": 193,
+  "E_points": 4,
+  "by_top": {
+   "closed": {
+    "top": 0.83,
+    "rest": 0.42
+   },
+   "sealed": {
+    "top": 0.07,
+    "rest": 0.15
+   },
+   "D": {
+    "top": 0.07,
+    "rest": 0.28
+   },
+   "bare10": {
+    "top": 0.07,
+    "rest": 0.19
+   }
+  }
+ },
+ "randompts_unit_rho": {
+  "D": {
+   "rho": -0.12,
+   "lo": -0.42,
+   "hi": 0.22,
+   "p": 0.464,
+   "n": 41
+  },
+  "bare10": {
+   "rho": -0.26,
+   "lo": -0.54,
+   "hi": 0.07,
+   "p": 0.102,
+   "n": 41
+  },
+  "closed": {
+   "rho": 0.26,
+   "lo": -0.07,
+   "hi": 0.54,
+   "p": 0.1,
+   "n": 41
+  }
+ },
+ "randompts_fisher": {
+  "closed": 0.0,
+  "D": 0.0016
+ },
+ "inventory": {
+  "A_n": 17,
+  "B_n": 12,
+  "A_classes": {
+   "ร่องริ้ว/รอยน้ำพัดผิวดิน": 15,
+   "รอยดินถล่ม": 1,
+   "ลาดตัดที่กำลังพัง": 1
+  },
+  "B_classes": {
+   "รอยดินถล่ม": 7,
+   "ลาดตัดที่กำลังพัง": 3,
+   "ร่องลึก/ร่องน้ำกัดลึก": 1,
+   "ร่องริ้ว/รอยน้ำพัดผิวดิน": 1
+  },
+  "A_new": 8,
+  "B_new": 5,
+  "B_conf_ge2": 3,
+  "match30": 0,
+  "match50": 1,
+  "match100_A": 6,
+  "match100_B": 3,
+  "unit_kappa": 0.07,
+  "unit_rho": 0.14,
+  "unit_p": 0.39,
+  "A_units": 7,
+  "B_units": 9,
+  "both_units": 2,
+  "tile_kappa": 0.25,
+  "tile_both": 4,
+  "tiles": 108,
+  "A_tiles": 13,
+  "B_tiles": 11,
+  "roc": [
+   {
+    "features": "A (17)",
+    "n": 17,
+    "map": "compound score (unit)",
+    "AUC": 0.72,
+    "lo": 0.61,
+    "hi": 0.82
+   },
+   {
+    "features": "A (17)",
+    "n": 17,
+    "map": "supply A (pixel)",
+    "AUC": 0.72,
+    "lo": 0.63,
+    "hi": 0.79
+   },
+   {
+    "features": "A (17)",
+    "n": 17,
+    "map": "IC (pixel)",
+    "AUC": 0.6,
+    "lo": 0.48,
+    "hi": 0.71
+   },
+   {
+    "features": "A (17)",
+    "n": 17,
+    "map": "slope only",
+    "AUC": 0.77,
+    "lo": 0.67,
+    "hi": 0.85
+   },
+   {
+    "features": "A (17)",
+    "n": 17,
+    "map": "near built-up (−distance)",
+    "AUC": 0.16,
+    "lo": 0.08,
+    "hi": 0.26
+   },
+   {
+    "features": "A (17)",
+    "n": 17,
+    "map": "S2 bare frequency",
+    "AUC": 0.3,
+    "lo": 0.19,
+    "hi": 0.42
+   },
+   {
+    "features": "B (12)",
+    "n": 12,
+    "map": "compound score (unit)",
+    "AUC": 0.55,
+    "lo": 0.4,
+    "hi": 0.7
+   },
+   {
+    "features": "B (12)",
+    "n": 12,
+    "map": "supply A (pixel)",
+    "AUC": 0.62,
+    "lo": 0.47,
+    "hi": 0.77
+   },
+   {
+    "features": "B (12)",
+    "n": 12,
+    "map": "IC (pixel)",
+    "AUC": 0.57,
+    "lo": 0.43,
+    "hi": 0.73
+   },
+   {
+    "features": "B (12)",
+    "n": 12,
+    "map": "slope only",
+    "AUC": 0.51,
+    "lo": 0.34,
+    "hi": 0.68
+   },
+   {
+    "features": "B (12)",
+    "n": 12,
+    "map": "near built-up (−distance)",
+    "AUC": 0.51,
+    "lo": 0.35,
+    "hi": 0.68
+   },
+   {
+    "features": "B (12)",
+    "n": 12,
+    "map": "S2 bare frequency",
+    "AUC": 0.53,
+    "lo": 0.39,
+    "hi": 0.66
+   },
+   {
+    "features": "A+B (29)",
+    "n": 29,
+    "map": "compound score (unit)",
+    "AUC": 0.65,
+    "lo": 0.54,
+    "hi": 0.75
+   },
+   {
+    "features": "A+B (29)",
+    "n": 29,
+    "map": "supply A (pixel)",
+    "AUC": 0.68,
+    "lo": 0.59,
+    "hi": 0.76
+   },
+   {
+    "features": "A+B (29)",
+    "n": 29,
+    "map": "IC (pixel)",
+    "AUC": 0.59,
+    "lo": 0.49,
+    "hi": 0.68
+   },
+   {
+    "features": "A+B (29)",
+    "n": 29,
+    "map": "slope only",
+    "AUC": 0.66,
+    "lo": 0.55,
+    "hi": 0.76
+   },
+   {
+    "features": "A+B (29)",
+    "n": 29,
+    "map": "near built-up (−distance)",
+    "AUC": 0.31,
+    "lo": 0.2,
+    "hi": 0.42
+   },
+   {
+    "features": "A+B (29)",
+    "n": 29,
+    "map": "S2 bare frequency",
+    "AUC": 0.39,
+    "lo": 0.29,
+    "hi": 0.49
+   },
+   {
+    "features": "A+B new since 2013/2017",
+    "n": 13,
+    "map": "compound score (unit)",
+    "AUC": 0.57,
+    "lo": 0.45,
+    "hi": 0.7
+   },
+   {
+    "features": "A+B new since 2013/2017",
+    "n": 13,
+    "map": "supply A (pixel)",
+    "AUC": 0.66,
+    "lo": 0.53,
+    "hi": 0.76
+   },
+   {
+    "features": "A+B new since 2013/2017",
+    "n": 13,
+    "map": "IC (pixel)",
+    "AUC": 0.59,
+    "lo": 0.44,
+    "hi": 0.72
+   },
+   {
+    "features": "A+B new since 2013/2017",
+    "n": 13,
+    "map": "slope only",
+    "AUC": 0.67,
+    "lo": 0.51,
+    "hi": 0.81
+   },
+   {
+    "features": "A+B new since 2013/2017",
+    "n": 13,
+    "map": "near built-up (−distance)",
+    "AUC": 0.33,
+    "lo": 0.18,
+    "hi": 0.5
+   },
+   {
+    "features": "A+B new since 2013/2017",
+    "n": 13,
+    "map": "S2 bare frequency",
+    "AUC": 0.36,
+    "lo": 0.25,
+    "hi": 0.49
+   }
+  ]
+ }
+}
