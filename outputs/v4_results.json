@@ -373,16 +373,16 @@
     "n": 17,
     "map": "compound score (unit)",
     "AUC": 0.72,
-    "lo": 0.61,
+    "lo": 0.6,
     "hi": 0.82
    },
    {
     "features": "A (17)",
     "n": 17,
     "map": "supply A (pixel)",
-    "AUC": 0.72,
-    "lo": 0.63,
-    "hi": 0.79
+    "AUC": 0.71,
+    "lo": 0.62,
+    "hi": 0.8
    },
    {
     "features": "A (17)",
@@ -396,7 +396,7 @@
     "features": "A (17)",
     "n": 17,
     "map": "slope only",
-    "AUC": 0.77,
+    "AUC": 0.76,
     "lo": 0.67,
     "hi": 0.85
    },
@@ -405,31 +405,31 @@
     "n": 17,
     "map": "near built-up (−distance)",
     "AUC": 0.16,
-    "lo": 0.08,
-    "hi": 0.26
+    "lo": 0.09,
+    "hi": 0.25
    },
    {
     "features": "A (17)",
     "n": 17,
     "map": "S2 bare frequency",
     "AUC": 0.3,
-    "lo": 0.19,
-    "hi": 0.42
+    "lo": 0.2,
+    "hi": 0.43
    },
    {
     "features": "B (12)",
     "n": 12,
     "map": "compound score (unit)",
     "AUC": 0.55,
-    "lo": 0.4,
-    "hi": 0.7
+    "lo": 0.41,
+    "hi": 0.69
    },
    {
     "features": "B (12)",
     "n": 12,
     "map": "supply A (pixel)",
     "AUC": 0.62,
-    "lo": 0.47,
+    "lo": 0.46,
     "hi": 0.77
    },
    {
@@ -438,7 +438,7 @@
     "map": "IC (pixel)",
     "AUC": 0.57,
     "lo": 0.43,
-    "hi": 0.73
+    "hi": 0.72
    },
    {
     "features": "B (12)",
@@ -461,7 +461,7 @@
     "n": 12,
     "map": "S2 bare frequency",
     "AUC": 0.53,
-    "lo": 0.39,
+    "lo": 0.4,
     "hi": 0.66
    },
    {
@@ -469,7 +469,7 @@
     "n": 29,
     "map": "compound score (unit)",
     "AUC": 0.65,
-    "lo": 0.54,
+    "lo": 0.55,
     "hi": 0.75
    },
    {
@@ -477,7 +477,7 @@
     "n": 29,
     "map": "supply A (pixel)",
     "AUC": 0.68,
-    "lo": 0.59,
+    "lo": 0.58,
     "hi": 0.76
    },
    {
@@ -485,7 +485,7 @@
     "n": 29,
     "map": "IC (pixel)",
     "AUC": 0.59,
-    "lo": 0.49,
+    "lo": 0.48,
     "hi": 0.68
    },
    {
@@ -494,14 +494,14 @@
     "map": "slope only",
     "AUC": 0.66,
     "lo": 0.55,
-    "hi": 0.76
+    "hi": 0.75
    },
    {
     "features": "A+B (29)",
     "n": 29,
     "map": "near built-up (−distance)",
     "AUC": 0.31,
-    "lo": 0.2,
+    "lo": 0.21,
     "hi": 0.42
    },
    {
@@ -510,38 +510,38 @@
     "map": "S2 bare frequency",
     "AUC": 0.39,
     "lo": 0.29,
-    "hi": 0.49
+    "hi": 0.5
    },
    {
     "features": "A+B new since 2013/2017",
     "n": 13,
     "map": "compound score (unit)",
     "AUC": 0.57,
-    "lo": 0.45,
-    "hi": 0.7
+    "lo": 0.44,
+    "hi": 0.69
    },
    {
     "features": "A+B new since 2013/2017",
     "n": 13,
     "map": "supply A (pixel)",
-    "AUC": 0.66,
-    "lo": 0.53,
+    "AUC": 0.65,
+    "lo": 0.52,
     "hi": 0.76
    },
    {
     "features": "A+B new since 2013/2017",
     "n": 13,
     "map": "IC (pixel)",
-    "AUC": 0.59,
+    "AUC": 0.58,
     "lo": 0.44,
-    "hi": 0.72
+    "hi": 0.73
    },
    {
     "features": "A+B new since 2013/2017",
     "n": 13,
     "map": "slope only",
     "AUC": 0.67,
-    "lo": 0.51,
+    "lo": 0.5,
     "hi": 0.81
    },
    {
@@ -557,9 +557,149 @@
     "n": 13,
     "map": "S2 bare frequency",
     "AUC": 0.36,
-    "lo": 0.25,
+    "lo": 0.24,
     "hi": 0.49
    }
   ]
+ },
+ "extra": {
+  "unit_level": {
+   "closed": {
+    "top_med": 0.9,
+    "rest_med": 0.33,
+    "p": 0.0029
+   },
+   "D": {
+    "top_med": 0.0,
+    "rest_med": 0.25,
+    "p": 0.0099
+   },
+   "bare10": {
+    "top_med": 0.0,
+    "rest_med": 0.17,
+    "p": 0.067
+   },
+   "sealed": {
+    "top_med": 0.0,
+    "rest_med": 0.0,
+    "p": 0.3123
+   }
+  },
+  "IC_vs_area": [
+   -0.25,
+   0.112
+  ],
+  "IC_vs_distcoast": [
+   -0.49,
+   0.001
+  ],
+  "supply_vs_distcoast": [
+   -0.07,
+   0.66
+  ],
+  "partial_supply_IC_given_slope": {
+   "IC_C_sealed1": [
+    0.21,
+    0.197
+   ],
+   "IC_C_sealed0.15": [
+    0.12,
+    0.478
+   ],
+   "IC_rough": [
+    -0.08,
+    0.639
+   ],
+   "IC_topo": [
+    -0.18,
+    0.259
+   ]
+  },
+  "potential_supply": {
+   "rho_actual": [
+    0.95,
+    0.0
+   ],
+   "rho_CS": [
+    0.97,
+    0.0
+   ],
+   "top8_shared": 7,
+   "top8_potential": [
+    "B1",
+    "B2",
+    "B3",
+    "B4",
+    "F2",
+    "F3",
+    "F6",
+    "F7"
+   ],
+   "forest_share_C": 0.63
+  },
+  "kappa_round1": {
+   "cover8": 0.22,
+   "grouped": 0.35,
+   "closed": 0.0,
+   "sealed": 0.83
+  },
+  "round1_img": {
+   "2024-02": 35,
+   "2025-12": 5
+  },
+  "round1_changed_cover": 27,
+  "split_remaining": {
+   "I1": 82,
+   "I2": 83
+  }
+ },
+ "dem_sensitivity": {
+  "fab_minus_glo_land": {
+   "mean": -1.75,
+   "p5": -8.26,
+   "min": -25.15
+  },
+  "glo30_control": {
+   "rho_CS": 0.982,
+   "rho_supply": 0.985,
+   "rho_IC": 0.988,
+   "rho_slope": 0.997,
+   "top8_shared": 7,
+   "top8": [
+    "B2",
+    "B3",
+    "B4",
+    "F1",
+    "F2",
+    "F3",
+    "F6",
+    "F7"
+   ],
+   "mean_slope_top0": 21.8,
+   "mean_slope_rest": 8.5,
+   "rho_supply_IC": 0.33,
+   "island_mean_slope": 11.1
+  },
+  "fabdem": {
+   "rho_CS": 0.975,
+   "rho_supply": 0.966,
+   "rho_IC": 0.964,
+   "rho_slope": 0.993,
+   "top8_shared": 7,
+   "top8": [
+    "B2",
+    "B3",
+    "B4",
+    "F1",
+    "F2",
+    "F3",
+    "F6",
+    "F7"
+   ],
+   "mean_slope_top0": 20.6,
+   "mean_slope_rest": 7.9,
+   "rho_supply_IC": 0.35,
+   "island_mean_slope": 10.4
+  }
  }
 }
