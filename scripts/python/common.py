@@ -1,9 +1,9 @@
 import numpy as np, rasterio, os
 # Package layout: <BASE>/inputs, <BASE>/outputs, <BASE>/interpretation, <BASE>/scripts/python
 BASE=os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-D=os.path.join(BASE,'inputs'); OUT=os.path.join(BASE,'outputs'); INTERP=os.path.join(BASE,'interpretation')
+D=os.environ.get('SICHANG_INPUTS',os.path.join(BASE,'inputs')); OUT=os.environ.get('SICHANG_OUT',os.path.join(BASE,'outputs')); INTERP=os.path.join(BASE,'interpretation')
 os.makedirs(OUT,exist_ok=True)
-BARE_FILE=os.path.join(D,'S2_bare_frequency_2019_2024_30m.tif'); BARE_BAND=2   # band 2 = freq20 (NDVI < 0.20 and BSI > 0)
+BARE_FILE=os.path.join(os.path.join(BASE,'inputs'),'S2_bare_frequency_2019_2024_30m.tif'); BARE_BAND=2   # band 2 = freq20 (NDVI < 0.20 and BSI > 0)
 def rd(n, d=D):
     with rasterio.open(f'{d}/{n}.tif') as r: a=r.read(1).astype(float); t=r.transform; p=r.profile
     a[(a<-1e30)|(a==-9999)]=np.nan; return a,t,p

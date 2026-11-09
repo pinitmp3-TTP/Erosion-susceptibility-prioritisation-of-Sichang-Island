@@ -25,7 +25,9 @@ def pts(p):   # A = Interpreter 1, B = Interpreter 2
     d=pd.read_csv(p,dtype=str); d[['lon','lat']]=d[['lon','lat']].astype(float); return d[cols]
 PA=pts(INTERP+'/random_points_interpreter1.csv'); PB=pts(INTERP+'/random_points_interpreter2.csv')
 P=pd.concat([PA.assign(who='A'),PB.assign(who='B')]); P=P[P.cover.notna()]
-neg=P[(P.eros=='ไม่มี')&~P.cover.astype(str).str.startswith('8')].drop_duplicates('pid')
+# negatives: land points at which no interpreter recorded an erosion feature
+hasE=set(P.pid[P.eros!='ไม่มี'])
+neg=P[(P.eros=='ไม่มี')&~P.pid.isin(hasE)&~P.cover.astype(str).str.startswith('8')].drop_duplicates('pid')
 key=pd.read_csv(INTERP+'/random_points_key.csv').set_index('pid')
 neg=neg.join(key[['x','y']],on='pid')
 N=sample(neg.x.values,neg.y.values); N=N[N.on_land]

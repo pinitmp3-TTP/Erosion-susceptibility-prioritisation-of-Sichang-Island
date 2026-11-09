@@ -99,7 +99,7 @@ for s,lab,colr,off in sets:
     d=roc[roc.features==s].set_index('map').loc[maps]
     yy=np.arange(len(maps))[::-1]+off; ax[1].errorbar(d.AUC,yy,xerr=[d.AUC-d.lo,d.hi-d.AUC],fmt='o',color=colr,ms=4,lw=1,capsize=0,label=lab)
 ax[1].axvline(.5,color='k',lw=.6,ls=':'); ax[1].set_yticks(np.arange(len(maps))[::-1]); ax[1].set_yticklabels(['Slope only','Supply (pixel)','Compound score','IC (pixel)','S2 bare frequency','Proximity to built-up'],fontsize=7)
-ax[1].set_xlabel('AUC (95% bootstrap CI), features vs 190 random points'); ax[1].set_xlim(0,1); ax[1].legend(fontsize=6.5,frameon=False,loc='lower right')
+ax[1].set_xlabel('AUC (95% bootstrap CI), features vs 189 random points'); ax[1].set_xlim(0,1); ax[1].legend(fontsize=6.5,frameon=False,loc='lower right')
 ax[1].set_title('(b) Discrimination depends on the interpreter',loc='left')
 plt.tight_layout(); plt.savefig(OUT+'/figs/Fig6_inventories.png',dpi=300); plt.close()
 print('ok')
