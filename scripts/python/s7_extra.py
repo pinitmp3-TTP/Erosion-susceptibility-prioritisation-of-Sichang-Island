@@ -42,3 +42,15 @@ X['kappa_round1']=kk(a1,b); X['round1_img']=a1.img.value_counts().to_dict(); X['
 X['split_remaining']=dict(I1=int(len(ld(INTERP+'/random_points_interpreter1.csv'))-40),I2=int(len(ld(INTERP+'/random_points_interpreter2.csv'))-40))
 R['extra']=X; json.dump(R,open(f'{OUT}/v4_results.json','w'),indent=1,ensure_ascii=False)
 print(json.dumps(X,indent=1,ensure_ascii=False))
+# 6. slope at disturbed vs undisturbed random points (pixel slope, GLO-30); point level, descriptive
+key=pd.read_csv(INTERP+'/random_points_key.csv').set_index('pid')
+sl,_,_=rd('slope'); P2=P.join(key[['x','y']],on='pid')
+rr=((P2.y-tr.f)/tr.e).astype(int); cc=((P2.x-tr.c)/tr.a).astype(int); P2['slope']=sl[rr,cc]
+pt=P2.groupby('pid').agg(D=('D','max'),slope=('slope','first'),label=('label','first'))
+X['slope_disturbed_points']=dict(n_dist=int(pt.D.sum()),n_undist=int((pt.D==0).sum()),med_dist=round(pt.slope[pt.D==1].median(),1),med_undist=round(pt.slope[pt.D==0].median(),1),
+    p=round(mannwhitneyu(pt.slope[pt.D==1],pt.slope[pt.D==0]).pvalue,4))
+# unit level: share of disturbed points vs unit mean slope
+gu=pt.groupby('label').D.mean().to_frame().join(T.set_index('label')[['slope']])
+X['unit_disturbed_vs_slope']=rs(gu.D,gu.slope)
+R['extra']=X; json.dump(R,open(f'{OUT}/v4_results.json','w'),indent=1,ensure_ascii=False)
+print(X['slope_disturbed_points'],X['unit_disturbed_vs_slope'])
