@@ -2,7 +2,7 @@
 
 Data and code for:
 
-> Tanachaichoksirikun, P.,  Sirikaew, U.,  Seeboonruang, U., Danpipattrakul, W.,  Chen, W. Hillslope supply or sediment connectivity? A two-block framework and open Earth Engine tool for prioritising erosion-susceptible units on a data-scarce tropical island. *CATENA* (submitted). [Update with the article DOI on publication.]
+> Tanachaichoksirikun, P., Sirikaew, U., Seeboonruang, U., Danpipattrakul, W., Chen, W. Hillslope supply or sediment connectivity? A two-block framework and open Earth Engine tool for prioritising erosion-susceptible units on a data-scarce tropical island. *CATENA* (submitted). [Update with the article DOI on publication.]
 
 Interactive application: https://sichang-island.projects.earthengine.app/view/sichang-erosion
 
@@ -29,6 +29,7 @@ interpretation/   blind visual interpretation (random points and erosion-feature
 | `Sichang_C_WorldCover_30m.tif` | 30 m grid used to aggregate WorldCover class fractions |
 | `Sichang_C_NDVI_2021_30m.tif` | NDVI-based C factor (2021), used for a sensitivity variant |
 | `S2_bare_frequency_2019_2024_30m.tif` | Sentinel-2 bare-soil frequency, 2019–2024 (export of `scripts/gee/Sichang_bare_frequency_GEE.js`): share of clear observations with NDVI below a threshold and BSI > 0. Bands `freq15`, `freq20`, `freq25` (NDVI thresholds 0.15, 0.20, 0.25) and `n_valid` (clear observations). Band 2 (`freq20`) is used in the analysis (`BARE_BAND` in `common.py`) |
+| `Sichang_FABDEM_grid.tif` | FABDEM (band 1) and GLO-30 (band 2) on the analysis grid (export of `scripts/gee/Sichang_FABDEM_GEE.js`), for the DEM sensitivity test. FABDEM: Hawker et al. (2022), CC BY-NC-SA 4.0 |
 | `soil_samples.csv` | Nine soil samples: coordinates, texture, bulk density, permeability and K for 0.5, 1.0 and 2.0% organic matter (Horpeancharoen et al., 2022) |
 | `Sichang_turbidity_outlets.csv` | Sentinel-2 nearshore turbidity at unit outlets and offshore controls, 2019–2025 (export of `scripts/gee/Sichang_turbidity_GEE.js`) |
 
@@ -53,6 +54,8 @@ python s8_points.py                       # regenerate the random interpretation
 python v4_results.py                      # scores, classes, null model, bare soil, turbidity, random points, kappa
 python analysis/roc_features.py           # AUC of feature inventories against maps
 python s6_inventory.py                    # agreement between the two inventories (adds to v4_results.json)
+python s7_extra.py                        # unit-level tests, IC vs geometry, partial correlation, potential supply, first-round kappa
+python s10_dem_sensitivity.py              # DEM sensitivity: FABDEM vs GLO-30 control, units fixed (outputs/dem_sens/)
 python make_figs_v4.py                    # Figs 2-6 of the article
 python s9_export.py                       # GeoTIFF and GeoPackage exports
 ```
@@ -67,6 +70,7 @@ Notes:
 |---|---|
 | `Sichang_turbidity_GEE.js` | Sentinel-2 L2A + Cloud Score+ turbidity at outlets and controls, with GPM IMERG antecedent rainfall |
 | `Sichang_bare_frequency_GEE.js` | Sentinel-2 L2A + Cloud Score+ bare-soil frequency, 2019–2024, computed at 10 m within the island outline and averaged to 30 m |
+| `Sichang_FABDEM_GEE.js` | FABDEM and GLO-30 on the analysis grid |
 | `sichang_erosion_app_v4.js` | The public Earth Engine application |
 | `app_assets/` | Assets uploaded for the application (`sichang_units_v4.zip`, `sichang_rasters_v4.tif`: b1 = soil loss, b2 = IC, b3 = bare-soil frequency) and the script that makes them |
 
@@ -87,12 +91,13 @@ Notes:
 
 ### interpretation/
 
-The two interpreters had not visited the island, were not involved in model development and had no access to the ranking. They are anonymised as Interpreter 1 (A in the scripts) and Interpreter 2 (B). The original forms were in Thai; categorical values are kept as entered and translated below. Free-text notes are in Thai.
+The two interpreters had not visited the island, were not involved in model development and had no access to the ranking. They are anonymised as Interpreter 1 (A in the scripts) and Interpreter 2 (B). Both are non-specialists; Interpreter 1 is a relative of the corresponding author. The ranking and all results were withheld from both until their interpretations had been submitted. The original forms were in Thai; categorical values are kept as entered and translated below. Free-text notes are in Thai.
 
 | File | Description |
 |---|---|
 | `random_points_key.csv` | 405 random points: `pid`, unit (`uid`, `label`, `ucode`), WGS 84 and UTM coordinates, and the unit's class, compound score and P(top) |
 | `random_points_interpreter1.csv`, `random_points_interpreter2.csv` | Interpretations of the random points (10 m circle) |
+| `random_points_interpreter1_round1.csv` | Interpreter 1's first round on the 40 shared points (February 2024 dry-season imagery; repeated on the specified 2021 imagery), used for the first-round κ |
 | `erosion_features_interpreter1.gpkg/.csv`, `erosion_features_interpreter2.gpkg/.csv` | Erosion features mapped in the tile-by-tile sweep (UTM 47N) |
 | `sweep_tiles_300m.kml` | The 108 sweep tiles (300 m × 300 m) |
 
@@ -131,4 +136,4 @@ Rasters and `.npz` arrays: WGS 84 / UTM zone 47N (EPSG:32647), 30.66 m cells, 26
 
 ## Licences and sources
 
-Data: CC BY 4.0. Code: MIT. Third-party inputs remain under their own terms: Copernicus GLO-30 DEM (© DLR e.V. 2010–2014 and © Airbus Defence and Space GmbH 2014–2018, provided under COPERNICUS by the European Union and ESA); ESA WorldCover 2021 v200 (CC BY 4.0); modified Copernicus Sentinel data 2019–2025; GPM IMERG (NASA). National C values: Land Development Department (2020). Soil data: Horpeancharoen et al. (2022).
+Data: CC BY 4.0. Code: MIT. Third-party inputs remain under their own terms: Copernicus GLO-30 DEM (© DLR e.V. 2010–2014 and © Airbus Defence and Space GmbH 2014–2018, provided under COPERNICUS by the European Union and ESA); ESA WorldCover 2021 v200 (CC BY 4.0); modified Copernicus Sentinel data 2019–2025; GPM IMERG (NASA); FABDEM (CC BY-NC-SA 4.0; non-commercial use). National C values: Land Development Department (2020). Soil data: Horpeancharoen et al. (2022).
