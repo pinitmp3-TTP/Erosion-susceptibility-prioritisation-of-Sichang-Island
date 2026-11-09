@@ -2,7 +2,7 @@
 
 Data and code for:
 
-> Tanachaichoksirikun, P., Chulkaivalsucharit, V., Sirikaew, U., Horpeancharoen, W., Srisuk, J., Seeboonruang, U., Danpipattrakul, W., Mandadi, R., Chen, W. Hillslope supply or sediment connectivity? A two-block framework and open Earth Engine tool for prioritising erosion-susceptible units on a data-scarce tropical island. *CATENA* (submitted). [Update with the article DOI on publication.]
+> Tanachaichoksirikun, P.,  Sirikaew, U.,  Seeboonruang, U., Danpipattrakul, W.,Khongkraphan T.,  Chen, W. Hillslope supply or sediment connectivity? A two-block framework and open Earth Engine tool for prioritising erosion-susceptible units on a data-scarce tropical island. *CATENA* (submitted). [Update with the article DOI on publication.]
 
 Interactive application: https://sichang-island.projects.earthengine.app/view/sichang-erosion
 
